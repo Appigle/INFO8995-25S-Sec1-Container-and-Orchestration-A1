@@ -179,7 +179,7 @@ The Dockerfile has been configured with security best practices:
 
 1. **Non-Root User**
 
-   - Created a dedicated `nginx-user` with UID 101
+   - Created a dedicated `nginx-user` with UID 1001 (chosen to avoid conflicts with system users)
    - No password and no shell access for better security
    - Nginx runs as this non-root user instead of root
 

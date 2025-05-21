@@ -25,7 +25,7 @@ LABEL version="1.0.0"
 LABEL description="Lab: Docker for frontend static app"
 
 # Create non-root user
-RUN adduser -D -H -u 101 -s /sbin/nologin nginx-user
+RUN adduser -D -H -u 1001 -s /sbin/nologin nginx-user
 
 # Remove default nginx static assets
 RUN rm -rf /usr/share/nginx/html/*
