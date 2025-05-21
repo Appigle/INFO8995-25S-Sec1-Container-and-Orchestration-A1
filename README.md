@@ -173,6 +173,32 @@ docker build -t vue-lottie-app:v1.0 .
 docker run -d -p 3000:80 vue-lottie-app:v1.0
 ```
 
+## Security Improvements
+
+The Dockerfile has been configured with security best practices:
+
+1. **Non-Root User**
+
+   - Created a dedicated `nginx-user` with UID 101
+   - No password and no shell access for better security
+   - Nginx runs as this non-root user instead of root
+
+2. **File Permissions**
+
+   - Proper ownership and permissions set for all nginx-related directories:
+     - `/usr/share/nginx/html` (web root)
+     - `/var/cache/nginx` (nginx cache)
+     - `/var/log/nginx` (nginx logs)
+     - `/etc/nginx/conf.d` (nginx configuration)
+     - `/var/run/nginx.pid` (nginx process ID file)
+   - All directories have appropriate read/write permissions (755)
+
+3. **Security Benefits**
+   - Follows the principle of least privilege
+   - Reduces attack surface
+   - Prevents potential privilege escalation
+   - Complies with container security best practices
+
 ## Project Structure
 
 - `src/` - Source code directory
